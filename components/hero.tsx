@@ -41,7 +41,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-medium mb-6 text-balance leading-tight tracking-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-medium mb-6 text-balance leading-tight tracking-tight bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
           >
             Mahder Hawaz
           </motion.h1>
@@ -54,8 +54,10 @@ export function Hero() {
             className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-xl"
           >
             Full Stack Developer building modern web applications with the{" "}
-            <span className="text-foreground font-medium">MERN stack</span>.
-            Based in Addis Ababa, Ethiopia.
+            <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent font-medium">
+              MERN stack
+            </span>
+            . Based in Addis Ababa, Ethiopia.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -68,11 +70,12 @@ export function Hero() {
             <Button
               onClick={scrollToProjects}
               size="lg"
-              className="bg-foreground text-background hover:bg-foreground/90 group"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg shadow-purple-500/25 group"
             >
               View Projects
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
+
             <Button
               variant="ghost"
               size="lg"
