@@ -2,40 +2,38 @@
 
 import { motion } from "framer-motion";
 
-const technologies = [
-  { name: "MongoDB", category: "Backend", color: "from-green-500 to-green-600" },
-  { name: "Express.js", category: "Backend", color: "from-gray-500 to-gray-600" },
-  { name: "React", category: "Frontend", color: "from-cyan-500 to-blue-500" },
-  { name: "Node.js", category: "Backend", color: "from-green-600 to-green-700" },
-  { name: "Next.js", category: "Frontend", color: "from-gray-700 to-gray-900" },
-  { name: "TypeScript", category: "Language", color: "from-blue-500 to-blue-600" },
-  { name: "PostgreSQL", category: "Database", color: "from-blue-600 to-blue-700" },
-  { name: "Prisma", category: "ORM", color: "from-indigo-500 to-purple-500" },
-  { name: "Tailwind CSS", category: "Styling", color: "from-cyan-400 to-cyan-600" },
-  { name: "Figma", category: "Design", color: "from-pink-500 to-purple-500" },
-  { name: "Clerk", category: "Auth", color: "from-purple-500 to-indigo-500" },
-  { name: "Brevo", category: "Email", color: "from-blue-500 to-indigo-500" },
-  { name: "Git", category: "Version Control", color: "from-orange-500 to-red-500" },
-  { name: "GitHub", category: "Platform", color: "from-gray-600 to-gray-800" },
-  { name: "AI Tools", category: "AI", color: "from-purple-400 to-pink-500" },
-  { name: "REST APIs", category: "Architecture", color: "from-green-400 to-emerald-500" },
+const tools = [
+  { name: "MongoDB", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+  { name: "Express", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+  { name: "React", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Node.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  { name: "Next.js", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+  { name: "TypeScript", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+  { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+  { name: "Prisma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg" },
+  { name: "Tailwind", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+  { name: "Figma", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "GitHub", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+  { name: "VS Code", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" },
 ];
 
 export function TechStack() {
+  // Duplicate the tools array for seamless infinite scroll
+  const duplicatedTools = [...tools, ...tools];
+
   return (
-    <section id="skills" className="relative py-24 overflow-hidden">
-      <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl" />
-      <div className="absolute top-1/3 right-1/4 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl" />
+    <section id="skills" className="relative py-20 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-purple-950/5 to-background" />
       
-      <div className="relative z-10 container mx-auto px-6">
+      <div className="relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12 px-6"
         >
-          <h2 className="text-sm font-mono text-primary uppercase tracking-wider mb-4">
+          <h2 className="text-sm font-mono text-pink-400 uppercase tracking-wider mb-4">
             Tech Stack
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold mb-6">
@@ -49,29 +47,54 @@ export function TechStack() {
           </p>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-          {technologies.map((tech, index) => (
+        {/* Infinite Scroll Container */}
+        <div className="relative">
+          {/* Gradient overlays for fade effect */}
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          
+          {/* Scrolling track */}
+          <div className="overflow-hidden">
             <motion.div
-              key={tech.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              className="group relative"
+              className="flex gap-6"
+              animate={{
+                x: [0, -50 * tools.length * 1.5],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
             >
-              <div className={`absolute inset-0 bg-gradient-to-r ${tech.color} rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300`} />
-              <div className="relative px-5 py-3 rounded-xl bg-card/50 backdrop-blur-sm border border-border group-hover:border-purple-500/30 transition-all duration-300">
-                <div className="flex items-center gap-3">
-                  <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${tech.color}`} />
-                  <span className="font-medium text-sm">{tech.name}</span>
+              {duplicatedTools.map((tool, index) => (
+                <div
+                  key={`${tool.name}-${index}`}
+                  className="flex-shrink-0 group"
+                >
+                  <div className="flex flex-col items-center gap-3 px-6 py-5 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:border-purple-500/30 hover:bg-white/10 transition-all duration-300 min-w-[120px]">
+                    <div className="w-12 h-12 relative">
+                      <img
+                        src={tool.icon}
+                        alt={tool.name}
+                        className="w-full h-full object-contain filter group-hover:brightness-110 transition-all duration-300 [filter:invert(1)] group-hover:[filter:invert(1)_drop-shadow(0_0_8px_rgba(168,85,247,0.5))]"
+                        style={{
+                          filter: tool.name === "Express" || tool.name === "Next.js" || tool.name === "GitHub" 
+                            ? "invert(1)" 
+                            : "none"
+                        }}
+                      />
+                    </div>
+                    <span className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors whitespace-nowrap">
+                      {tool.name}
+                    </span>
+                  </div>
                 </div>
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wider mt-1 block">
-                  {tech.category}
-                </span>
-              </div>
+              ))}
             </motion.div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

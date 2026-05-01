@@ -83,7 +83,7 @@ export function Navigation() {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className={`text-sm font-medium transition-colors relative ${
+                  className={`text-xs font-medium uppercase tracking-wider transition-colors relative ${
                     activeSection === item.href.slice(1)
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -98,6 +98,14 @@ export function Navigation() {
                   )}
                 </motion.button>
               ))}
+              <motion.button
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="border border-purple-500/50 text-purple-400 px-5 py-2 text-xs font-bold uppercase tracking-wider hover:bg-purple-500 hover:text-white transition-all duration-300"
+              >
+                Resume
+              </motion.button>
             </div>
 
             {/* Mobile Menu Button */}
