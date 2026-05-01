@@ -39,7 +39,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-sm font-mono text-primary uppercase tracking-wider mb-4">
+          <h2 className="text-sm font-mono text-pink-400 uppercase tracking-wider mb-4">
             About Me
           </h2>
           <h3 className="text-3xl md:text-4xl font-bold mb-6 text-balance">
