@@ -40,7 +40,7 @@ export function Navbar() {
           <a href="https://github.com/mahderhawaz" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
             <Github className="w-4 h-4" />
           </a>
-          <a href="https://www.linkedin.com/in/mahderhawaz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
+          <a href="https://www.linkedin.com/in/mahder-hawaz" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-2 text-muted-foreground hover:text-foreground transition-colors">
             <Linkedin className="w-4 h-4" />
           </a>
           <a href="/image.png" target="_blank" rel="noopener noreferrer" className="ml-2 inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-md border border-white/10 text-muted-foreground hover:text-foreground hover:border-white/20 transition-colors">

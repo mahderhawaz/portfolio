@@ -21,7 +21,7 @@ const socialLinks = [
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://www.linkedin.com/in/mahderhawaz",
+    href: "https://www.linkedin.com/in/mahder-hawaz",
     label: "Mahder Hawaz",
     color: "from-blue-500 to-blue-700",
   },
