@@ -39,7 +39,7 @@ const responses: Record<string, Message> = {
   github: {
     id: 0,
     type: "bot",
-    content: "Mahder's GitHub profile showcases all his projects and contributions. You'll find the source code for Brana Art, HealthBridge, E-Learning Platform, and more!",
+    content: "Mahder's GitHub profile showcases all her projects and contributions. You'll find the source code for Brana Art, HealthBridge, E-Learning Platform, and more!",
     options: [
       { label: "Open GitHub", action: "open_github", icon: <Github className="w-4 h-4" /> },
       { label: "Back to Menu", action: "menu" },
@@ -48,7 +48,7 @@ const responses: Record<string, Message> = {
   linkedin: {
     id: 0,
     type: "bot",
-    content: "Connect with Mahder on LinkedIn for professional networking, job opportunities, or to stay updated with his latest work and achievements!",
+    content: "Connect with Mahder on LinkedIn for professional networking, job opportunities, or to stay updated with her latest work and achievements!",
     options: [
       { label: "Open LinkedIn", action: "open_linkedin", icon: <Linkedin className="w-4 h-4" /> },
       { label: "Back to Menu", action: "menu" },
@@ -57,7 +57,7 @@ const responses: Record<string, Message> = {
   about: {
     id: 0,
     type: "bot",
-    content: "Mahder is a passionate MERN Stack Developer based in Addis Ababa, Ethiopia. He specializes in building scalable web applications with MongoDB, Express.js, React, and Node.js. He also has expertise in UI/UX design with Figma and AI tool integration.",
+    content: "Mahder is a passionate MERN Stack Developer based in Addis Ababa, Ethiopia. She specializes in building scalable web applications with MongoDB, Express.js, React, and Node.js. She also has expertise in UI/UX design with Figma and AI tool integration.",
     options: [
       { label: "View Projects", action: "projects" },
       { label: "Contact Mahder", action: "contact_options" },
@@ -111,7 +111,6 @@ export function ChatWidget() {
   }, [messages]);
 
   const handleAction = (action: string) => {
-    // Add user message
     const userMessage: Message = {
       id: Date.now(),
       type: "user",
@@ -119,7 +118,6 @@ export function ChatWidget() {
     };
     setMessages((prev) => [...prev, userMessage]);
 
-    // Handle external actions
     if (action === "open_email") {
       window.location.href = "mailto:mahderhawaz16@gmail.com";
     } else if (action === "open_github") {
@@ -132,7 +130,6 @@ export function ChatWidget() {
       return;
     }
 
-    // Add bot response
     setTimeout(() => {
       const response = responses[action];
       if (response) {
@@ -152,7 +149,6 @@ export function ChatWidget() {
     setMessages((prev) => [...prev, userMessage]);
     setInputValue("");
 
-    // Simple keyword matching for custom messages
     setTimeout(() => {
       const lowerInput = inputValue.toLowerCase();
       let responseKey = "menu";
@@ -176,7 +172,6 @@ export function ChatWidget() {
 
   return (
     <>
-      {/* Floating Button */}
       <motion.button
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
@@ -187,7 +182,6 @@ export function ChatWidget() {
         <Sparkles className="w-6 h-6" />
       </motion.button>
 
-      {/* Chat Window */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -196,7 +190,6 @@ export function ChatWidget() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[500px] max-h-[calc(100vh-100px)] rounded-2xl overflow-hidden bg-background/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-purple-500/10 flex flex-col"
           >
-            {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-white/10 bg-gradient-to-r from-purple-500/10 to-pink-500/10">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center">
@@ -218,7 +211,6 @@ export function ChatWidget() {
               </button>
             </div>
 
-            {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4">
               {messages.map((message) => (
                 <motion.div
@@ -255,7 +247,6 @@ export function ChatWidget() {
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input */}
             <div className="p-4 border-t border-white/10">
               <div className="flex gap-2">
                 <input
